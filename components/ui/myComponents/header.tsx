@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import { ModeToggle } from "./mode-toggle";
+import { ModeToggle } from "./ModeToggle";
 
 const Header = () => {
   return (
