@@ -13,91 +13,285 @@ const topSchema = new mongoose.Schema({
     type: Number,
   },
   fabric: {
-    cotton: Boolean,
-    linen: Boolean,
-    polyester: Boolean,
-    wool: Boolean,
-    silk: Boolean,
-    denim: Boolean,
-    velvet: Boolean,
-    fleece: Boolean,
-    nylon: Boolean,
-    hemp: Boolean,
+    cotton: {
+      type: Boolean,
+      default: false,
+    },
+    linen: {
+      type: Boolean,
+      default: false,
+    },
+    polyester: {
+      type: Boolean,
+      default: false,
+    },
+    wool: {
+      type: Boolean,
+      default: false,
+    },
+    silk: {
+      type: Boolean,
+      default: false,
+    },
+    denim: {
+      type: Boolean,
+      default: false,
+    },
+    velvet: {
+      type: Boolean,
+      default: false,
+    },
+    fleece: {
+      type: Boolean,
+      default: false,
+    },
+    nylon: {
+      type: Boolean,
+      default: false,
+    },
+    hemp: {
+      type: Boolean,
+      default: false,
+    },
   },
   design: {
-    solidColor: Boolean,
-    striped: Boolean,
-    checked: Boolean,
-    printed: Boolean,
-    graphic: Boolean,
-    embroidered: Boolean,
-    floralPatterned: Boolean,
+    solidColor: {
+      type: Boolean,
+      default: false,
+    },
+    striped: {
+      type: Boolean,
+      default: false,
+    },
+    checked: {
+      type: Boolean,
+      default: false,
+    },
+    printed: {
+      type: Boolean,
+      default: false,
+    },
+    graphic: {
+      type: Boolean,
+      default: false,
+    },
+    embroidered: {
+      type: Boolean,
+      default: false,
+    },
+    floralPatterned: {
+      type: Boolean,
+      default: false,
+    },
   },
   style: {
-    tShirt: Boolean,
-    basicTShirt: Boolean,
-    poloTShirt: Boolean,
-    henleyTShirt: Boolean,
-    vNeckTShirt: Boolean,
-    shirt: Boolean,
-    casualShirt: Boolean,
-    formalShirt: Boolean,
-    denimShirt: Boolean,
-    linenShirt: Boolean,
-    buttonDownShirt: Boolean,
-    sweatshirt: Boolean,
-    hoodie: Boolean,
-    jacket: Boolean,
-    denimJacket: Boolean,
-    leatherJacket: Boolean,
-    sweater: Boolean,
-    longSleeveTop: Boolean,
-  
+    tShirt: {
+      type: Boolean,
+      default: false,
+    },
+    basicTShirt: {
+      type: Boolean,
+      default: false,
+    },
+    poloTShirt: {
+      type: Boolean,
+      default: false,
+    },
+    henleyTShirt: {
+      type: Boolean,
+      default: false,
+    },
+    vNeckTShirt: {
+      type: Boolean,
+      default: false,
+    },
+    shirt: {
+      type: Boolean,
+      default: false,
+    },
+    casualShirt: {
+      type: Boolean,
+      default: false,
+    },
+    formalShirt: {
+      type: Boolean,
+      default: false,
+    },
+    denimShirt: {
+      type: Boolean,
+      default: false,
+    },
+    linenShirt: {
+      type: Boolean,
+      default: false,
+    },
+    buttonDownShirt: {
+      type: Boolean,
+      default: false,
+    },
+    sweatshirt: {
+      type: Boolean,
+      default: false,
+    },
+    hoodie: {
+      type: Boolean,
+      default: false,
+    },
+    jacket: {
+      type: Boolean,
+      default: false,
+    },
+    denimJacket: {
+      type: Boolean,
+      default: false,
+    },
+    leatherJacket: {
+      type: Boolean,
+      default: false,
+    },
+    sweater: {
+      type: Boolean,
+      default: false,
+    },
+    longSleeveTop: {
+      type: Boolean,
+      default: false,
+    },
   },
   occasion: {
-    casual: Boolean,
-    sportswear: Boolean,
-    loungewear: Boolean,
-    vacation: Boolean,
+    casual: {
+      type: Boolean,
+      default: false,
+    },
+    sportswear: {
+      type: Boolean,
+      default: false,
+    },
+    loungewear: {
+      type: Boolean,
+      default: false,
+    },
+    vacation: {
+      type: Boolean,
+      default: false,
+    },
   },
   season: {
-    summer: Boolean,
-    winter: Boolean,
-    allSeason: Boolean,
-    monsoonFriendly: Boolean,
+    summer: {
+      type: Boolean,
+      default: false,
+    },
+    winter: {
+      type: Boolean,
+      default: false,
+    },
+    allSeason: {
+      type: Boolean,
+      default: false,
+    },
+    monsoonFriendly: {
+      type: Boolean,
+      default: false,
+    },
   },
   fit: {
-    regularFit: Boolean,
-    slimFit: Boolean,
-    relaxedFit: Boolean,
-    oversized: Boolean,
+    regularFit: {
+      type: Boolean,
+      default: false,
+    },
+    slimFit: {
+      type: Boolean,
+      default: false,
+    },
+    relaxedFit: {
+      type: Boolean,
+      default: false,
+    },
+    oversized: {
+      type: Boolean,
+      default: false,
+    },
   },
   sleeveType: {
-    shortSleeve: Boolean,
-    longSleeve: Boolean,
-    sleeveless: Boolean,
-    halfSleeve: Boolean,
-    fiveSleeve:Boolean,
+    shortSleeve: {
+      type: Boolean,
+      default: false,
+    },
+    longSleeve: {
+      type: Boolean,
+      default: false,
+    },
+    sleeveless: {
+      type: Boolean,
+      default: false,
+    },
+    halfSleeve: {
+      type: Boolean,
+      default: false,
+    },
+    fiveSleeve: {
+      type: Boolean,
+      default: false,
+    },
   },
-  color: String,
+  color: {
+    type: String,
+    default: '', // Optionally set a default value
+  },
   size: {
-    s: Boolean,
-    m: Boolean,
-    l: Boolean,
-    xl: Boolean,
-    xxl: Boolean,
-    xxxl : Boolean,
+    s: {
+      type: Boolean,
+      default: false,
+    },
+    m: {
+      type: Boolean,
+      default: false,
+    },
+    l: {
+      type: Boolean,
+      default: false,
+    },
+    xl: {
+      type: Boolean,
+      default: false,
+    },
+    xxl: {
+      type: Boolean,
+      default: false,
+    },
+    xxxl: {
+      type: Boolean,
+      default: false,
+    },
   },
-  quantity: Number,
-  description: String,
+  quantity: {
+    type: Number,
+    default: 0, // Optionally set a default value
+  },
+  description: {
+    type: String,
+    default: '', // Optionally set a default value
+  },
   mainImage: {
-    public_id: String,
-    secure_url: String,
+    public_id: {
+      type: String,
+      default: '', // Optionally set a default value
+    },
+    secure_url: {
+      type: String,
+      default: '', // Optionally set a default value
+    },
   },
   additionalImage: [
     {
-      public_id: String,
-      secure_url: String,
+      public_id: {
+        type: String,
+        default: '', // Optionally set a default value
+      },
+      secure_url: {
+        type: String,
+        default: '', // Optionally set a default value
+      },
     },
   ],
   createdAt: {

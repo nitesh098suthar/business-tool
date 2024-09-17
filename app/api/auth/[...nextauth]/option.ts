@@ -6,7 +6,7 @@ import client from '@/lib/db'
 
 
 export const authOptions = {
-    //  adapter: MongoDBAdapter(client),
+    // adapter: MongoDBAdapter(client),
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID as string,
