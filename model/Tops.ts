@@ -31,9 +31,6 @@ const topSchema = new mongoose.Schema({
     printed: Boolean,
     graphic: Boolean,
     embroidered: Boolean,
-    tieDye: Boolean,
-    colorBlocked: Boolean,
-    camouflage: Boolean,
     floralPatterned: Boolean,
   },
   style: {
@@ -53,11 +50,9 @@ const topSchema = new mongoose.Schema({
     jacket: Boolean,
     denimJacket: Boolean,
     leatherJacket: Boolean,
-    windbreaker: Boolean,
     sweater: Boolean,
-    tankTop: Boolean,
     longSleeveTop: Boolean,
-    cardigan: Boolean,
+  
   },
   occasion: {
     casual: Boolean,
