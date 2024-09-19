@@ -304,6 +304,6 @@ const topSchema = new mongoose.Schema({
   },
 });
 
-const Tops = mongoose.model("Tops", topSchema);
+const Tops = mongoose.models.Tops || mongoose.model('Tops', topSchema);
 
 export default Tops;

@@ -9,4 +9,5 @@ const connectdb = async()=>{
         console.log("mongodbv not connected successfully");
     }
 }
+// connectdb();
 export default connectdb;

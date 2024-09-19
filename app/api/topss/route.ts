@@ -1,20 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import Tops from "@/model/Tops";
 import connectdb from "@/lib/database";
+import cloudinary from "@/lib/cloudinary-Setup";
+import { Imageupload } from "@/lib/uploadImageToCloudinary";
 
 
 
-export const POST = async (req: NextRequest, res: NextResponse) => {
+
+export const POST = async (req: NextRequest) => {
     await connectdb();
 
     try {
-        // Parse the form data from the request
+    
         const formData = await req.formData();
 
-        // Extract form fields
+        // Extracting product details
         const name = formData.get('name') as string;
         const price = Number(formData.get('price'));
-        const strikePrice = formData.get('strikePrice') ? Number(formData.get('strikePrice')) : undefined;
+        const strikePrice = formData.has('strikePrice') ? Number(formData.get('strikePrice')) : undefined;
+
+        // Define other attributes
         const fabric = {
             cotton: formData.has('fabric.cotton'),
             linen: formData.has('fabric.linen'),
@@ -27,6 +32,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             nylon: formData.has('fabric.nylon'),
             hemp: formData.has('fabric.hemp'),
         };
+
         const design = {
             solidColor: formData.has('design.solidColor'),
             striped: formData.has('design.striped'),
@@ -36,6 +42,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             embroidered: formData.has('design.embroidered'),
             floralPatterned: formData.has('design.floralPatterned'),
         };
+
         const style = {
             tShirt: formData.has('style.tShirt'),
             basicTShirt: formData.has('style.basicTShirt'),
@@ -56,24 +63,28 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             sweater: formData.has('style.sweater'),
             longSleeveTop: formData.has('style.longSleeveTop'),
         };
+
         const occasion = {
             casual: formData.has('occasion.casual'),
             sportswear: formData.has('occasion.sportswear'),
             loungewear: formData.has('occasion.loungewear'),
             vacation: formData.has('occasion.vacation'),
         };
+
         const season = {
             summer: formData.has('season.summer'),
             winter: formData.has('season.winter'),
             allSeason: formData.has('season.allSeason'),
             monsoonFriendly: formData.has('season.monsoonFriendly'),
         };
+
         const fit = {
             regularFit: formData.has('fit.regularFit'),
             slimFit: formData.has('fit.slimFit'),
             relaxedFit: formData.has('fit.relaxedFit'),
             oversized: formData.has('fit.oversized'),
         };
+
         const sleeveType = {
             shortSleeve: formData.has('sleeveType.shortSleeve'),
             longSleeve: formData.has('sleeveType.longSleeve'),
@@ -81,6 +92,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             halfSleeve: formData.has('sleeveType.halfSleeve'),
             fiveSleeve: formData.has('sleeveType.fiveSleeve'),
         };
+
         const color = formData.get('color') as string;
         const size = {
             s: formData.has('size.s'),
@@ -90,21 +102,37 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             xxl: formData.has('size.xxl'),
             xxxl: formData.has('size.xxxl'),
         };
+
         const quantity = Number(formData.get('quantity')) || 0;
         const description = formData.get('description') as string;
 
-        // Handle mainImage and additionalImage if necessary, assuming they are file uploads
-        const mainImage = {
-            public_id: formData.get('mainImagePublicId') as string || '',
-            secure_url: formData.get('mainImageSecureUrl') as string || '',
-        };
-        const additionalImage = formData.getAll('additionalImage').map((file: any) => ({
-            public_id: file.public_id || '',
-            secure_url: file.secure_url || '',
-        }));
+        // Upload images to Cloudinary
+        const mainImageFile = formData.get('mainImage') as File;
+        const mainImageResult = await Imageupload(mainImageFile,'tops' )
+        
 
-        // Create a new Tops instance
-        const top = new Tops({
+        const mainImage = {
+            public_id: mainImageResult.public_id,
+            secure_url: mainImageResult.secure_url,
+        };
+        if (!mainImageFile) {
+            throw new Error('Main image file is missing');
+        }
+        
+        // Additional images
+        const additionalImageFiles = formData.getAll('additionalImage') as File[];
+        const additionalImages = await Promise.all(
+            additionalImageFiles.map(async (file) => {
+                const result = await Imageupload(file, 'tops' );
+                return {
+                    public_id: result.public_id,
+                    secure_url: result.secure_url,
+                };
+            })
+        );
+
+        // Create a new top item
+        const newTop = new Tops({
             name,
             price,
             strikePrice,
@@ -120,18 +148,17 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             quantity,
             description,
             mainImage,
-            additionalImage,
+            additionalImage: additionalImages,
         });
 
-        // Save the Tops instance to the database
-        const savedTop = await top.save();
+        // Save to the database
+        const savedTop = await newTop.save();
 
-        // Return a success response
+        // Send response
         return NextResponse.json({ message: 'Top created successfully', top: savedTop }, { status: 201 });
+
     } catch (error) {
         console.error('Error creating top:', error);
-
-        // Return an error response
         return NextResponse.json({ error: 'Failed to create top' }, { status: 500 });
     }
 };
