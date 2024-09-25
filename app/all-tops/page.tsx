@@ -24,7 +24,7 @@ export default function page() {
           </Accordion>
         </div>
       </div>
-      <div className="flex p-4 flex-start">
+      <div className="flex p-4 flex-start gap-4">
         {topapi.map((topapi) => (
           <ListingCard key={topapi._id} topapi={topapi} />
         ))}

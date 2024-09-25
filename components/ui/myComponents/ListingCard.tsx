@@ -9,7 +9,7 @@ const ListingCard = ({ topapi }: { topapi: any }) => {
   );
 
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg overflow-hidden">
+    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg overflow-hidden h-[44vh]">
       {/* Product Image */}
       <img
         className="w-full h-56 object-cover"

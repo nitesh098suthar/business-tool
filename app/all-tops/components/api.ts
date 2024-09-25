@@ -84,16 +84,19 @@ export const topapi = [
       "A soft, comfortable, casual cotton t-shirt perfect for summer.",
     mainImage: {
       public_id: "casual-cotton-tshirt-main",
-      secure_url: "https://example.com/casual-cotton-tshirt-main.jpg",
+      secure_url:
+        "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSiYBx1yAiV8te7-hftbdB8DLBoPRNirw10-_ZqoIji02UkzUf9uspVUKolpLe4DxU8UHGJxCFAAR1Qy5ZrVEA6H5tPoLdnJ6u3j0SSd4M",
     },
     additionalImage: [
       {
         public_id: "casual-cotton-tshirt-side",
-        secure_url: "https://example.com/casual-cotton-tshirt-side.jpg",
+        secure_url:
+          "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSiYBx1yAiV8te7-hftbdB8DLBoPRNirw10-_ZqoIji02UkzUf9uspVUKolpLe4DxU8UHGJxCFAAR1Qy5ZrVEA6H5tPoLdnJ6u3j0SSd4M",
       },
       {
         public_id: "casual-cotton-tshirt-back",
-        secure_url: "https://example.com/casual-cotton-tshirt-back.jpg",
+        secure_url:
+          "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSiYBx1yAiV8te7-hftbdB8DLBoPRNirw10-_ZqoIji02UkzUf9uspVUKolpLe4DxU8UHGJxCFAAR1Qy5ZrVEA6H5tPoLdnJ6u3j0SSd4M",
       },
     ],
     createdAt: new Date("2023-09-01T12:00:00Z"),
@@ -168,12 +171,14 @@ export const topapi = [
     description: "A stylish black denim jacket, perfect for fall and winter.",
     mainImage: {
       public_id: "black-denim-jacket-main",
-      secure_url: "https://example.com/black-denim-jacket-main.jpg",
+      secure_url:
+        "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSiYBx1yAiV8te7-hftbdB8DLBoPRNirw10-_ZqoIji02UkzUf9uspVUKolpLe4DxU8UHGJxCFAAR1Qy5ZrVEA6H5tPoLdnJ6u3j0SSd4M",
     },
     additionalImage: [
       {
         public_id: "black-denim-jacket-side",
-        secure_url: "https://example.com/black-denim-jacket-side.jpg",
+        secure_url:
+          "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSiYBx1yAiV8te7-hftbdB8DLBoPRNirw10-_ZqoIji02UkzUf9uspVUKolpLe4DxU8UHGJxCFAAR1Qy5ZrVEA6H5tPoLdnJ6u3j0SSd4M",
       },
     ],
     createdAt: new Date("2023-08-15T12:00:00Z"),
@@ -247,12 +252,14 @@ export const topapi = [
     description: "A cozy gray V-neck wool sweater, perfect for winter.",
     mainImage: {
       public_id: "gray-vneck-sweater-main",
-      secure_url: "https://example.com/gray-vneck-sweater-main.jpg",
+      secure_url:
+        "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSiYBx1yAiV8te7-hftbdB8DLBoPRNirw10-_ZqoIji02UkzUf9uspVUKolpLe4DxU8UHGJxCFAAR1Qy5ZrVEA6H5tPoLdnJ6u3j0SSd4M",
     },
     additionalImage: [
       {
         public_id: "gray-vneck-sweater-side",
-        secure_url: "https://example.com/gray-vneck-sweater-side.jpg",
+        secure_url:
+          "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSiYBx1yAiV8te7-hftbdB8DLBoPRNirw10-_ZqoIji02UkzUf9uspVUKolpLe4DxU8UHGJxCFAAR1Qy5ZrVEA6H5tPoLdnJ6u3j0SSd4M",
       },
     ],
     createdAt: new Date("2023-07-01T12:00:00Z"),
