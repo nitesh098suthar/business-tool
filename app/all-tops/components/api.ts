@@ -1,4 +1,4 @@
-const topapi = [
+export const topapi = [
   {
     _id: 0,
     name: "Casual Cotton T-Shirt",
@@ -259,4 +259,3 @@ const topapi = [
     updatedAt: new Date("2023-07-10T12:00:00Z"),
   },
 ];
-export default topapi

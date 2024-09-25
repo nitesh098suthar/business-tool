@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import React from "react";
 import { ModeToggle } from "./ModeToggle";
 import { signIn } from "next-auth/react";
