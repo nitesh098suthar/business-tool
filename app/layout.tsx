@@ -1,11 +1,11 @@
-'use client'
+"use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import HeaderTwo from "@/components/ui/myComponents/HeaderTwo";
 import Footer from "@/components/ui/myComponents/footer";
 import { SessionProvider } from "next-auth/react";
+import Header from "@/components/ui/myComponents/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,10 +29,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div>
-            <HeaderTwo />
+            <Header />
           </div>
           <div>
-          <SessionProvider>{children}</SessionProvider>
+            <SessionProvider>{children}</SessionProvider>
           </div>
           <div>
             <Footer />

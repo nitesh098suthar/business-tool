@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/ui/myComponents/footer";
-import Header from "@/components/ui/myComponents/header";
 import Image from "next/image";
 import React from "react";
 const mainTypes = [
@@ -72,9 +71,6 @@ const HomePage = () => {
             />
           </div>
           <div className="bg-black h-full w-full absolute top-0 bottom-0 opacity-70 "></div>
-        </div>
-        <div className="absolute top-0 left-0 w-full">
-          <Header />
         </div>
       </div>
       <div className="sectionOne my-20">

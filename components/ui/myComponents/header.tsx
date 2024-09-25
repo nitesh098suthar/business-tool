@@ -1,24 +1,41 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { ModeToggle } from "./ModeToggle";
+import { signIn } from "next-auth/react";
+import Link from "next/link";
+import { Button } from "../button";
 
 const Header = () => {
+  const signInHandler = () => {
+    signIn("google", { callbackUrl: "/homeffgf" });
+  };
   return (
-    <div className="flex justify-between items-center w-full px-8">
-      <Image
+    <div className=" p-2 flex justify-between items-center w-full px-8 bg-foreground">
+      <div>
+        <Button className="" onClick={signInHandler}>
+          Signout
+        </Button>
+      </div>
+      {/* <Image
         width={60}
         height={60}
         src="/images/logo.jpg"
         alt="logo"
         className=""
-      />
+      /> */}
       <div className="flex gap-4">
-        <p className="text-background/60 hover:text-background/80 cursor-pointer">
-          Home
-        </p>
-        <p className="text-background/60 hover:text-background/80 cursor-pointer">
-          All Tops
-        </p>
+        <Link href="/">
+          <p className="text-background/60 hover:text-background/80 cursor-pointer">
+            Home
+          </p>
+        </Link>
+        <Link href="/all-tops">
+          <p className="text-background/60 hover:text-background/80 cursor-pointer">
+            All Tops
+          </p>
+        </Link>
         <p className="text-background/60 hover:text-background/80 cursor-pointer">
           All Bottoms
         </p>
