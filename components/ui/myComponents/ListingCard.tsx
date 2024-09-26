@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -9,20 +10,19 @@ const ListingCard = ({ topapi }: { topapi: any }) => {
   );
 
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg overflow-hidden h-[44vh]">
-      {/* Product Image */}
+    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg overflow-hidden h-[810px]">
       <img
-        className="w-full h-56 object-cover"
+        width={250}
+        height={500}
+        className="w-full object-cover"
         src={topapi.mainImage.secure_url}
         alt={topapi.name}
       />
 
       {/* Card Content */}
       <div className="p-4">
-        {/* Product Name */}
         <h3 className="text-lg font-semibold text-gray-800">{topapi.name}</h3>
 
-        {/* Price and Strike Price */}
         <div className="flex items-center space-x-2 my-2">
           <span className="text-xl font-bold text-green-600">
             ${topapi.price}
@@ -35,7 +35,6 @@ const ListingCard = ({ topapi }: { topapi: any }) => {
           </span>
         </div>
 
-        {/* Color and Fabric */}
         <div className="text-sm text-gray-600">
           <p>
             Color: <span className="font-medium">{topapi.color}</span>
