@@ -1,7 +1,10 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/ui/myComponents/footer";
 import Image from "next/image";
 import React from "react";
+import { useGetTopssQuery } from "./services/api";
+
 const mainTypes = [
   {
     name: "All TOPS",
@@ -57,6 +60,8 @@ const newArrivals = [
   },
 ];
 const HomePage = () => {
+  const { data, isLoading } = useGetTopssQuery();
+  console.log(data);
   return (
     <>
       <div className="relative top-0 left-0">

@@ -6,7 +6,8 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import Footer from "@/components/ui/myComponents/footer";
 import { SessionProvider } from "next-auth/react";
 import Header from "@/components/ui/myComponents/header";
-
+import { Provider } from "react-redux";
+import { store } from "./store";
 const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
@@ -21,24 +22,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div>
-            <Header />
-          </div>
-          <div>
-            <SessionProvider>{children}</SessionProvider>
-          </div>
-          <div>
-            <Footer />
-          </div>
-        </ThemeProvider>
-      </body>
+      <Provider store={store}>
+        <body className={inter.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div>
+              <Header />
+            </div>
+            <div>
+              <SessionProvider>{children}</SessionProvider>
+            </div>
+            <div>
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </body>
+      </Provider>
     </html>
   );
 }
