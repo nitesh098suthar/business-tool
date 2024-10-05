@@ -51,9 +51,9 @@ const ListingCard = ({ topapi }: { topapi: any }) => {
 
         {/* Product Description */}
         <p className="text-sm text-gray-500 mt-3">
-          {topapi.description.length > 60
+          {topapi.description &&topapi.description.length > 60
             ? `${topapi.description.slice(0, 60)}...`
-            : topapi.description}
+            : topapi.description || 'No description available'}
         </p>
 
         {/* Ratings (Dummy rating for now) */}

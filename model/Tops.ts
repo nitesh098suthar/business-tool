@@ -290,7 +290,7 @@ const topSchema = new mongoose.Schema({
       },
       secure_url: {
         type: String,
-        default: '', // Optionally set a default value
+        default: '',
       },
     },
   ],
