@@ -11,7 +11,7 @@ const ListingCard = ({ topapi }: { topapi: any }) => {
 
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg overflow-hidden h-[810px]">
-      <img
+      <Image
         width={250}
         height={500}
         className="w-full object-cover"

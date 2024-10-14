@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 
 interface CartItem {
@@ -51,7 +52,9 @@ const CartPage = () => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {cartItems.map((item) => (
           <div key={item.id} className="bg-white p-4 shadow-md rounded-lg">
-            <img
+            <Image
+              width={400}
+              height={400}
               src={item.imageUrl}
               alt={item.name}
               className="w-full h-48 object-cover mb-4"
