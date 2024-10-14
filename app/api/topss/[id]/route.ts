@@ -263,7 +263,7 @@ export const GET = async (
     }
 
     return NextResponse.json(
-      { message: "Top fetch successfully" },
+      { message: "Top fetch successfully", existingTop },
       { status: 200 }
     );
   } catch (error) {
