@@ -6,7 +6,7 @@ import { ModeToggle } from "./ModeToggle";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { Button } from "../button";
-
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const Header = () => {
   const signInHandler = () => {
     signIn("google", { callbackUrl: "/homeffgf" });
@@ -49,7 +49,12 @@ const Header = () => {
           Wholesale
         </p>
       </div>
-      <div>
+      <div className="flex gap-2 ">
+        <Link href={"/cart"}>
+          <div className="border bg-white grid place-content-center w-9 h-9 rounded-md">
+            <ShoppingCartIcon />
+          </div>
+        </Link>
         <ModeToggle />
       </div>
     </div>
